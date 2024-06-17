@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { IoMdClose } from "react-icons/io";
 
 const StyledModal = styled.div`
   position: fixed;
@@ -48,3 +49,19 @@ const Button = styled.button`
     color: var(--color-grey-500);
   }
 `;
+
+function Modal({ children, onClose }) {
+  return (
+    <Overlay>
+      <StyledModal>
+        <Button onClick={onClose}>
+          <IoMdClose />
+        </Button>
+
+        <div>{children}</div>
+      </StyledModal>
+    </Overlay>
+  );
+}
+
+export default Modal;
